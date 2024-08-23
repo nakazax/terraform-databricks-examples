@@ -37,3 +37,8 @@ variable "firewallfqdn" {
   type        = list(any)
   description = "Additional list of fully qualified domain names to add to firewall rules"
 }
+
+variable "tags" {
+  type        = map(any)
+  description = "map of tags to add to all resources"
+}

@@ -17,6 +17,7 @@ module "adb_with_private_links_exfiltration_protection" {
   dbfs_prefix      = var.dbfs_prefix
   workspace_prefix = var.workspace_prefix
   firewallfqdn     = var.firewallfqdn
+  tags             = var.tags
 }
 
 output "workspace_url" {
