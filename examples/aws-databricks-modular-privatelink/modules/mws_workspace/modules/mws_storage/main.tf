@@ -1,9 +1,9 @@
 resource "aws_s3_bucket" "root_storage_bucket" {
   bucket = var.root_bucket_name
-  acl    = "private"
-  versioning {
-    enabled = false
-  }
+  # acl    = "private"
+  # versioning {
+  #   enabled = false
+  # }
   force_destroy = true
   tags          = var.tags
 }

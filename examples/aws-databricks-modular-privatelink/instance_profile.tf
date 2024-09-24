@@ -1,6 +1,6 @@
 // create a data s3 bucket for demo purposes
 resource "aws_s3_bucket" "data_bucket" {
-  bucket        = "data-bucket-for-test" // hard-coded value for demo only
+  bucket        = "hinak-data-bucket-20240924" // hard-coded value for demo only
   acl           = "private"
   force_destroy = true
 }

@@ -20,23 +20,23 @@ module "my_root_bucket" {
   tags                  = var.tags
 }
 
-resource "databricks_mws_customer_managed_keys" "workspace_storage" {
-  account_id = var.databricks_account_id
-  aws_key_info {
-    key_arn   = var.workspace_storage_cmk.key_arn
-    key_alias = var.workspace_storage_cmk.key_alias
-  }
-  use_cases = ["STORAGE"]
-}
+# resource "databricks_mws_customer_managed_keys" "workspace_storage" {
+#   account_id = var.databricks_account_id
+#   aws_key_info {
+#     key_arn   = var.workspace_storage_cmk.key_arn
+#     key_alias = var.workspace_storage_cmk.key_alias
+#   }
+#   use_cases = ["STORAGE"]
+# }
 
-resource "databricks_mws_customer_managed_keys" "managed_services" {
-  account_id = var.databricks_account_id
-  aws_key_info {
-    key_arn   = var.managed_services_cmk.key_arn
-    key_alias = var.managed_services_cmk.key_alias
-  }
-  use_cases = ["MANAGED_SERVICES"]
-}
+# resource "databricks_mws_customer_managed_keys" "managed_services" {
+#   account_id = var.databricks_account_id
+#   aws_key_info {
+#     key_arn   = var.managed_services_cmk.key_arn
+#     key_alias = var.managed_services_cmk.key_alias
+#   }
+#   use_cases = ["MANAGED_SERVICES"]
+# }
 
 
 resource "databricks_mws_private_access_settings" "pas" {
@@ -62,8 +62,8 @@ resource "databricks_mws_workspaces" "this" {
   network_id               = module.my_mws_network.network_id
 
   # cmk
-  storage_customer_managed_key_id          = databricks_mws_customer_managed_keys.workspace_storage.customer_managed_key_id
-  managed_services_customer_managed_key_id = databricks_mws_customer_managed_keys.managed_services.customer_managed_key_id
+  # storage_customer_managed_key_id          = databricks_mws_customer_managed_keys.workspace_storage.customer_managed_key_id
+  # managed_services_customer_managed_key_id = databricks_mws_customer_managed_keys.managed_services.customer_managed_key_id
 
   depends_on = [module.my_mws_network, module.my_root_bucket]
 }

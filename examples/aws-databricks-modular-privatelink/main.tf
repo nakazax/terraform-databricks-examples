@@ -12,18 +12,18 @@ locals {
   sg_egress_protocol  = ["tcp", "udp"]
   workspace_confs = { //add more workspaces here, remove from here to delete specific workspace
     workspace_1 = var.workspace_1_config
-    workspace_2 = var.workspace_2_config
+    # workspace_2 = var.workspace_2_config
   }
 }
 
 
-module "databricks_cmk" {
-  source                 = "./modules/databricks_cmk"
-  cross_account_role_arn = aws_iam_role.cross_account_role.arn
-  resource_prefix        = local.prefix
-  region                 = var.region
-  cmk_admin              = var.cmk_admin
-}
+# module "databricks_cmk" {
+#   source                 = "./modules/databricks_cmk"
+#   cross_account_role_arn = aws_iam_role.cross_account_role.arn
+#   resource_prefix        = local.prefix
+#   region                 = var.region
+#   cmk_admin              = var.cmk_admin
+# }
 
 // for each VPC, you should create workspace_collection
 module "workspace_collection" {
@@ -45,8 +45,8 @@ module "workspace_collection" {
   nat_gateways_id       = aws_nat_gateway.nat_gateways[0].id
   security_group_ids    = [aws_security_group.sg.id]
   private_subnet_pair   = [each.value.private_subnet_pair.subnet1_cidr, each.value.private_subnet_pair.subnet2_cidr]
-  workspace_storage_cmk = module.databricks_cmk.workspace_storage_cmk
-  managed_services_cmk  = module.databricks_cmk.managed_services_cmk
+  # workspace_storage_cmk = module.databricks_cmk.workspace_storage_cmk
+  # managed_services_cmk  = module.databricks_cmk.managed_services_cmk
   root_bucket_name      = each.value.root_bucket_name
   relay_vpce_id         = [databricks_mws_vpc_endpoint.relay.vpc_endpoint_id]
   rest_vpce_id          = [databricks_mws_vpc_endpoint.backend_rest_vpce.vpc_endpoint_id]

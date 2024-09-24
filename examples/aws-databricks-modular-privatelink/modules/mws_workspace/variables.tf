@@ -35,11 +35,11 @@ variable "private_subnet_pair" {
   type = list(string)
 }
 // for cmk config
-variable "managed_services_cmk" {
-}
+# variable "managed_services_cmk" {
+# }
 
-variable "workspace_storage_cmk" {
-}
+# variable "workspace_storage_cmk" {
+# }
 
 variable "root_bucket_name" {
   type = string
