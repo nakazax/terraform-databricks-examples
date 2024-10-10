@@ -14,7 +14,7 @@ variable "databricks_account_id" {
 
 variable "region" {
   type    = string
-  default = "ap-southeast-1"
+  default = "ap-northeast-1"
 }
 
 variable "tags" {
