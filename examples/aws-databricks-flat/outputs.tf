@@ -4,10 +4,10 @@ output "databricks_host" {
 }
 
 // export token for integration tests to run on
-output "databricks_token" {
-  value     = databricks_token.pat.token_value
-  sensitive = true
-}
+# output "databricks_token" {
+#   value     = databricks_token.pat.token_value
+#   sensitive = true
+# }
 
 output "arn" {
   value = aws_iam_role.cross_account_role.arn
