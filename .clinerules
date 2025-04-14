@@ -1,0 +1,5 @@
+# terraform-databricks-sandbox
+このプロジェクトでは、検証用のDatabricks環境およびその他のリソースを管理するためのTerraformコードを提供します。
+
+## 基本的な指示
+`terraform plan` と `terraform apply` の時には `AWS_PROFILE=332745928618_databricks-sandbox-admin` を先頭に付与してください
