@@ -79,6 +79,7 @@ module "my_mws_network" {
   databricks_account_client_id     = var.databricks_account_client_id
   databricks_account_client_secret = var.databricks_account_client_secret
   databricks_account_id            = var.databricks_account_id
+  aws_profile                      = var.aws_profile
   region                           = var.region
   aws_nat_gateway_id               = aws_nat_gateway.nat_gateways[0].id
   private_subnet_pair              = var.private_subnet_pair

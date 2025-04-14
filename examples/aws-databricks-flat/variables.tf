@@ -1,3 +1,11 @@
+variable "aws_profile" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}
+
 variable "databricks_account_id" {
   type = string
 }
@@ -10,11 +18,6 @@ variable "databricks_account_client_id" {
 variable "databricks_account_client_secret" {
   type        = string
   description = "Client secret of account-level service principal"
-}
-
-variable "region" {
-  type    = string
-  default = "ap-northeast-1"
 }
 
 variable "tags" {
@@ -40,5 +43,4 @@ variable "private_subnet_pair" {
 variable "prefix" {
   description = "The prefix to use for resources"
   type        = string
-  default     = "hinakflat"
 }

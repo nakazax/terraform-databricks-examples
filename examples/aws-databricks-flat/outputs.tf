@@ -1,3 +1,8 @@
+// export workspace_id to be used by other modules
+output "workspace_id" {
+  value = databricks_mws_workspaces.this.workspace_id
+}
+
 // export host to be used by other modules
 output "databricks_host" {
   value = databricks_mws_workspaces.this.workspace_url

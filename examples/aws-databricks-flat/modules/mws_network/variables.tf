@@ -17,6 +17,11 @@ variable "databricks_account_id" {
   type = string
 }
 
+variable "aws_profile" {
+  type        = string
+  description = "AWS profile to use for authentication"
+}
+
 variable "region" {
   type    = string
   default = "ap-southeast-1"

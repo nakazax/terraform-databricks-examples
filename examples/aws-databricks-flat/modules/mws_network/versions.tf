@@ -7,8 +7,8 @@ terraform {
 }
 
 provider "aws" {
+  profile = var.aws_profile
   region  = var.region
-  version = "~> 4.0"
 }
 
 // initialize provider in "MWS" mode to provision new workspace
